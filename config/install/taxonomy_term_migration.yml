@@ -1,0 +1,42 @@
+id: taxonomy_term_migration
+label: Migrate Taxonomy
+migration_groups:
+  - taxonomy_migration_group
+
+source:
+  plugin: csv
+
+  path: modules/custom/taxonomy_term_migration/data/taxonomy_term.csv
+
+  delimiter: ','
+
+  enclosure: '"'
+
+  header_row_count: 1
+
+  keys:
+    - id
+
+  column_names:
+    0:
+      id: 'id'
+    1:
+      landmark: 'landmark'
+    2:
+      city: 'city' 
+    3:
+      description: 'description'
+
+
+process:
+  tid:
+    plugin: migration_lookup
+    migration: taxonomy_term_migration
+    source: subject
+  vid:
+    plugin: default_value
+    default_value: subject
+  name: subject
+
+destination:
+  plugin: entity:taxonomy_term

@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains taxonomy_term_migration.module.
+ */
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_help().
+ */
+function taxonomy_term_migration_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the taxonomy_term_migration module.
+    case 'help.page.taxonomy_term_migration':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('It will be used to migrate taxonomy term from a CSV file.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

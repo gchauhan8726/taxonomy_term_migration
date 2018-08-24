@@ -1,0 +1,5 @@
+name: 'Taxonomy Term Import'
+type: module
+description: 'Importing taxonomy from CSV.'
+core: 8.x
+package: 'Custom'
